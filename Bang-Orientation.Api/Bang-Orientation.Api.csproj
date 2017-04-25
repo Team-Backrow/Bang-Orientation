@@ -163,6 +163,7 @@
     <Compile Include="App_Start\StructuremapWebApi.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="DAL\Interface\IOrderInterface.cs" />
     <Compile Include="DAL\Repository\OrderRepository.cs" />
     <Compile Include="DependencyResolution\DefaultRegistry.cs" />
