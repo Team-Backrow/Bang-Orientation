@@ -8,5 +8,6 @@ namespace Bang_Orientation.Api.DAL.Interface
 {
     interface IOrderInterface
     {
+        void GetOrder(int OrderID);
     }
 }
