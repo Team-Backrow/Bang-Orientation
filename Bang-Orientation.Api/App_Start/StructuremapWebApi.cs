@@ -16,14 +16,15 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 using System.Web.Http;
+using StructureMap;
 using Bang_Orientation.Api.DependencyResolution;
 
-[assembly: WebActivatorEx.PostApplicationStartMethod(typeof(Bang_Orientation.Api.App_Start.StructuremapWebApi), "Start")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(Bang_Orientation.Api.App_Start.StructuremapWebApi), "Start")]
 
 namespace Bang_Orientation.Api.App_Start {
     public static class StructuremapWebApi {
         public static void Start() {
-			var container = StructuremapMvc.StructureMapDependencyScope.Container;
+			IContainer container = IoC.Initialize();
             GlobalConfiguration.Configuration.DependencyResolver = new StructureMapWebApiDependencyResolver(container);
         }
     }
