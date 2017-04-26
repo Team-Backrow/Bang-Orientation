@@ -12,7 +12,7 @@ namespace Bang_Orientation.Api.Controllers
     {
         readonly ICustomerRepository _customerRepository;
 
-        public CustomerController()
+       public CustomerController()
         {
         }
 
@@ -21,6 +21,8 @@ namespace Bang_Orientation.Api.Controllers
             _customerRepository = customerRepository;
         }
 
+        [HttpPost]
+        [Route("api/customer")]
         public HttpResponseMessage AddACustomer(Customer customer)
         {
             _customerRepository.Save(customer);
