@@ -25,5 +25,13 @@ namespace Bang_Orientation.Api.DAL.Repository
 
             _dbConnection.Execute(sql, NewProduct);
         }
+
+        public IEnumerable<Product> GetAllProducts()
+        {
+            var sql = @"Select name, brand, description, price from Product";
+
+            return _dbConnection.Query<Product>(sql);
+        }
+
     }
 }

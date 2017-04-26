@@ -9,6 +9,7 @@ using Bang_Orientation.Api.Models;
 
 namespace Bang_Orientation.Api.Controllers
 {
+    [RoutePrefix("api/product")]
     public class ProductController : ApiController
     {
         readonly ProductRepository _productRepository;
@@ -19,7 +20,7 @@ namespace Bang_Orientation.Api.Controllers
         }
 
         [HttpPost]
-        [Route("api/product")]
+       
 
 
         public HttpResponseMessage AddProduct(Product product)
@@ -35,4 +36,4 @@ namespace Bang_Orientation.Api.Controllers
         }
     }
 }
-}
+
