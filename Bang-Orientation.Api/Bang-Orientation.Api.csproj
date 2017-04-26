@@ -165,7 +165,7 @@
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="DAL\Interface\IOrderInterface.cs" />
-    <Compile Include="DAL\Interface\IProductInterface.cs" />
+    <Compile Include="DAL\Interface\IProductRepository.cs" />
     <Compile Include="DAL\Repository\OrderRepository.cs" />
     <Compile Include="DAL\Repository\ProductRepository.cs" />
     <Compile Include="DependencyResolution\DefaultRegistry.cs" />

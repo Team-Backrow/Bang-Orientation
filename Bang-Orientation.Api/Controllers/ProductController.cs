@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Bang_Orientation.Api.DAL.Interface;
 using Bang_Orientation.Api.DAL.Repository;
 using Bang_Orientation.Api.Models;
 
@@ -12,17 +13,15 @@ namespace Bang_Orientation.Api.Controllers
     [RoutePrefix("api/product")]
     public class ProductController : ApiController
     {
-        readonly ProductRepository _productRepository;
+        readonly IProductRepository _productRepository;
 
-        public ProductController(ProductRepository productRepository)
+        public ProductController(IProductRepository productRepository)
         {
             _productRepository = productRepository;
         }
 
         [HttpPost]
        
-
-
         public HttpResponseMessage AddProduct(Product product)
         {
             if (string.IsNullOrWhiteSpace(product.Name))
@@ -33,6 +32,14 @@ namespace Bang_Orientation.Api.Controllers
             _productRepository.Save(product);
 
             return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
+        [HttpGet]
+        public HttpResponseMessage GetAll()
+        {
+            var products = _productRepository.GetAllProducts();
+
+            return Request.CreateResponse(HttpStatusCode.OK, products);
         }
     }
 }

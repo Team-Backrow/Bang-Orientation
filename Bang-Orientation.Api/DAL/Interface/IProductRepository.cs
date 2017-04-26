@@ -7,8 +7,9 @@ using Bang_Orientation.Api.Models;
 
 namespace Bang_Orientation.Api.DAL.Interface
 {
-    public interface IProductInterface
+    public interface IProductRepository
     {
         void Save(Product newProduct);
+        IEnumerable<Product> GetAllProducts();
     }
 }
