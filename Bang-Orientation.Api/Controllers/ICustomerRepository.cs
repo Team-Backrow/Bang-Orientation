@@ -1,6 +1,9 @@
-﻿namespace Bang_Orientation.Api.Controllers
+﻿using Bang_Orientation.Api.Models;
+
+namespace Bang_Orientation.Api.Controllers
 {
     public interface ICustomerRepository
     {
+        void Save(Customer newCustomer);
     }
 }
