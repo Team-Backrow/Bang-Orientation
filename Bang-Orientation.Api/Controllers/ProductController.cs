@@ -21,7 +21,7 @@ namespace Bang_Orientation.Api.Controllers
         }
 
         [HttpPost]
-       
+
         public HttpResponseMessage AddProduct(Product product)
         {
             if (string.IsNullOrWhiteSpace(product.Name))
@@ -41,6 +41,16 @@ namespace Bang_Orientation.Api.Controllers
 
             return Request.CreateResponse(HttpStatusCode.OK, products);
         }
-    }
+
+        public HttpResponseMessage GetSingleProduct(int productId)
+        {
+
+            var product = _productRepository.GetSingleProduct(productId);
+
+            return Request.CreateResponse(HttpStatusCode.OK, product);
+        }
 }
+
+}
+
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Http;
 using Bang_Orientation.Api.Models;
 
 namespace Bang_Orientation.Api.DAL.Interface
@@ -11,5 +12,6 @@ namespace Bang_Orientation.Api.DAL.Interface
     {
         void Save(Product newProduct);
         IEnumerable<Product> GetAllProducts();
+        IHttpActionResult GetSingleProduct(Product productId);
     }
 }

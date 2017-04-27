@@ -26,12 +26,14 @@ namespace Bang_Orientation.Api.Tests
             _controller.Request = new HttpRequestMessage();
             _controller.Request.SetConfiguration(new HttpConfiguration());
         }
+
         [TestMethod]
         public void AddAProductSuccessfully()
         {
             //arrange 
             var newProduct = new Product
             {
+                ProductId = 1,
                 Name = "Wolverine Comic, No. 1",
                 Brand = "Marvel Comics",
                 Description = "Meet the unkillable Wolverine!",
