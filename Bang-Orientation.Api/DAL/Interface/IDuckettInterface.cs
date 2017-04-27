@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bang_Orientation.Api.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,11 @@ using System.Threading.Tasks;
 
 namespace Bang_Orientation.Api.DAL.Interface
 {
-    interface Interface1
+    public interface IDuckettInterface
     {
+
+        void Save(Duckett newDuckett);
+
+        IEnumerable<Duckett> GetAllDucketts();
     }
 }

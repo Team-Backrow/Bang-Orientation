@@ -164,7 +164,9 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\DuckettController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="DAL\Interface\IDuckettInterface.cs" />
     <Compile Include="DAL\Interface\IOrderInterface.cs" />
+    <Compile Include="DAL\Repository\DuckettRepository.cs" />
     <Compile Include="DAL\Repository\OrderRepository.cs" />
     <Compile Include="DependencyResolution\DefaultRegistry.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
@@ -175,6 +177,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Duckett.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
