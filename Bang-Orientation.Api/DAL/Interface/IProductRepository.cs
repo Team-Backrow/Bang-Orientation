@@ -12,6 +12,7 @@ namespace Bang_Orientation.Api.DAL.Interface
     {
         void Save(Product newProduct);
         IEnumerable<Product> GetAllProducts();
-        IHttpActionResult GetSingleProduct(Product productId);
+        Product GetSingleProduct(int productId);
+        bool DeleteSingleProduct(int productId);
     }
 }

@@ -35,19 +35,19 @@ namespace Bang_Orientation.Api.DAL.Repository
             return _dbConnection.Query<Product>(sql);
         }
 
-        public IHttpActionResult GetSingleProduct(Product productId)
+        public Product GetSingleProduct(int productId)
         {
-            throw new NotImplementedException();
+            var sql = @"Select productId, name, brand, description, price from Product where productId = @productId";
+
+            return _dbConnection.QueryFirstOrDefault<Product>(sql, new {productId});
         }
 
-        //public IHttpActionResult GetSingleProduct()
-        //{
-        //    var product = IEnumerable<Product>.FirstOrDefault((p) => p.ProductId == id);
-        //    if (product == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return Ok(product);
-        //}
+        public bool DeleteSingleProduct(int productId)
+        {
+            var sql = @"Delete from Product where productId = @productId";
+
+
+            return 0< _dbConnection.Execute(sql, new {productId});
+        }
     }
 }

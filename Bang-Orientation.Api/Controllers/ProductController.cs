@@ -10,7 +10,7 @@ using Bang_Orientation.Api.Models;
 
 namespace Bang_Orientation.Api.Controllers
 {
-    [RoutePrefix("api/product")]
+    [RoutePrefix("api/products")]
     public class ProductController : ApiController
     {
         readonly IProductRepository _productRepository;
@@ -35,13 +35,15 @@ namespace Bang_Orientation.Api.Controllers
         }
 
         [HttpGet]
+        [Route("")]
         public HttpResponseMessage GetAll()
         {
             var products = _productRepository.GetAllProducts();
 
             return Request.CreateResponse(HttpStatusCode.OK, products);
         }
-
+        [HttpGet]
+        [Route("{productId}")]
         public HttpResponseMessage GetSingleProduct(int productId)
         {
 
@@ -49,8 +51,16 @@ namespace Bang_Orientation.Api.Controllers
 
             return Request.CreateResponse(HttpStatusCode.OK, product);
         }
-}
 
+        [HttpDelete]
+        [Route("{productId}")]
+        public HttpResponseMessage DeleteSingleProduct(int productId)
+        {
+            bool itWorked = _productRepository.DeleteSingleProduct(productId);
+
+            return Request.CreateResponse(HttpStatusCode.OK, itWorked);
+        }
+    }
 }
 
 
