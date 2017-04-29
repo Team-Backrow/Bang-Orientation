@@ -34,7 +34,9 @@ namespace Bang_Orientation.Api.Tests
             var newOrder = new Order
             {
                 OrderTitle = "First Order",
-                OrderID = 1234
+                OrderID = 1234,
+                CustomerID = 1234,
+                DuckettsID = 1234
             };
 
 
@@ -53,7 +55,9 @@ namespace Bang_Orientation.Api.Tests
             var newOrder = new Order
             {
                 OrderTitle = "",
-                OrderID = 1234
+                OrderID = 1234,
+                CustomerID = 1234,
+                DuckettsID = 1234
                 
             };
 

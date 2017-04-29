@@ -32,5 +32,37 @@ namespace Bang_Orientation.Api.Controllers
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
+        [HttpGet]
+        [Route("api/order/{id}")]
+        public HttpResponseMessage GetOrder(int id)
+        {
+            var order = _orderRepository.GetById(id);
+
+            if (order == null)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.NotFound,
+                    $"The Order with an id of {id} does not exist");
+            }
+
+            return Request.CreateResponse(HttpStatusCode.OK, order);
+        }
+        
+        [HttpGet]
+        [Route("api/order")]
+        public HttpResponseMessage ReturnAllOrders(Order order)
+        {
+           var allOrders = _orderRepository.AllOrders();
+
+            return Request.CreateResponse(HttpStatusCode.OK, allOrders);
+        }
+
+        [HttpDelete]
+        [Route("api/order/{id}")]
+        public HttpResponseMessage DeleteOrder(int id)
+        {
+            var deleteOrder = _orderRepository.Delete(id);
+
+            return Request.CreateResponse(HttpStatusCode.OK, deleteOrder);
+        }
     }
 }

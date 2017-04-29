@@ -9,5 +9,7 @@ namespace Bang_Orientation.Api.DAL.Interface
     interface IOrderRepository
     {
         void GetOrder(int OrderID);
+        void AllOrders();
+
     }
 }
