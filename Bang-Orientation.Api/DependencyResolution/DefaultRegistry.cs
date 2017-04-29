@@ -35,7 +35,7 @@ namespace Bang_Orientation.Api.DependencyResolution {
 
             For <IDbConnection>()
                 .Use(
-                    c => new SqlConnection(ConfigurationManager.ConnectionStrings["Bang-Orientation"]
+                    c => new SqlConnection(ConfigurationManager.ConnectionStrings["BangDatabase"]
                         .ConnectionString));
         }
 

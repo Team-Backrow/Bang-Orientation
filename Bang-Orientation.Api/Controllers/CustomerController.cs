@@ -8,6 +8,7 @@ using Bang_Orientation.Api.Models;
 
 namespace Bang_Orientation.Api.Controllers
 {
+    [RoutePrefix("api/customer")]
     public class CustomerController : ApiController
     {
         readonly ICustomerRepository _customerRepository;
@@ -22,11 +23,25 @@ namespace Bang_Orientation.Api.Controllers
         }
 
         [HttpPost]
-        [Route("api/customer")]
         public HttpResponseMessage AddACustomer(Customer customer)
         {
             _customerRepository.Save(customer);
             return Request.CreateResponse(HttpStatusCode.OK);
         }
+
+        [HttpGet]
+        public HttpResponseMessage GetACustomer(Customer customer)
+        {
+            _customerRepository.GetACustomer(customer);
+            return Request.CreateResponse(HttpStatusCode.OK);
+        }
+
+        [HttpGet]
+        public HttpResponseMessage GetAllCustomers()
+        {
+            _customerRepository.GetAllCustomers();
+            return Request.CreateResponse(HttpStatusCode.OK, customers);
+        }
+
     }
 }
