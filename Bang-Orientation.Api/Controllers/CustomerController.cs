@@ -29,11 +29,12 @@ namespace Bang_Orientation.Api.Controllers
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
+        [Route("{id}")]
         [HttpGet]
-        public HttpResponseMessage GetACustomer(int id)
+        public HttpResponseMessage GetACustomer(id)
         {
             _customerRepository.GetACustomer(id);
-            return Request.CreateResponse(HttpStatusCode.OK);
+            return Request.CreateResponse(HttpStatusCode.OK, customer);
         }
 
         [HttpGet]
