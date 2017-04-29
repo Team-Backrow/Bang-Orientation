@@ -13,7 +13,7 @@ namespace Bang_Orientation.Api.Controllers
     {
         readonly ICustomerRepository _customerRepository;
 
-       public CustomerController()
+        public CustomerController()
         {
         }
 
@@ -30,18 +30,19 @@ namespace Bang_Orientation.Api.Controllers
         }
 
         [HttpGet]
-        public HttpResponseMessage GetACustomer(Customer customer)
+        public HttpResponseMessage GetACustomer(int id)
         {
-            _customerRepository.GetACustomer(customer);
+            _customerRepository.GetACustomer(id);
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
         [HttpGet]
         public HttpResponseMessage GetAllCustomers()
         {
-            _customerRepository.GetAllCustomers();
+            var customers = _customerRepository.GetAllCustomers();
             return Request.CreateResponse(HttpStatusCode.OK, customers);
         }
-
     }
 }
+
+  
