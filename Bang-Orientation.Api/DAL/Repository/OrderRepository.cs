@@ -3,14 +3,27 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Bang_Orientation.Api.Models;
+using System.Data;
+using Dapper;
 
 namespace Bang_Orientation.Api.DAL.Repository
 {
-    public class OrderRepository : IOrderInterface
+    public class OrderRepository : IOrderRepository
     {
-        public void GetOrder(int OrderID)
+        IDbConnection _dbConnection;
+        public OrderRepository(IDbConnection connection)
         {
-            throw new NotImplementedException();
+            _dbConnection = connection;
+        }
+
+        public void Save(Order newOrder)
+        {
+            var sql = @" Insert into Order(OrderTitle, OrderId, DuckettsId, CustomerId)
+
+                   values(@ordertitle, @orderid, @duckettsid, @customerid) ";
+
+            _dbConnection.Execute(sql, newOrder);
         }
     }
 }

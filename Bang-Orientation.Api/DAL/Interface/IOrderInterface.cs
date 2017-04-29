@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bang_Orientation.Api.DAL.Interface
 {
-    interface IOrderInterface
+    interface IOrderRepository
     {
         void GetOrder(int OrderID);
     }
