@@ -19,15 +19,15 @@ namespace Bang_Orientation.Api.DAL.Repository
 
         public void Save(Duckett newDuckett)
         {
-            var sql = @"Insert into Duckett(duckettsid,duckettstype,accounttype,customerid)
-                        Values(@duckettid,@duckettstype,@accounttype,@customerid)";
+            var sql = @"Insert into Duckett(ducketttype,accountnumber,customerid)
+                        Values(@ducketttype,@accountnumber,@customerid)";
 
             _dbConnection.Execute(sql, newDuckett);
         }
 
-        public IEnumerable<Duckett> GetAll()
+        public IEnumerable<Duckett> GetAllDucketts()
         {
-            var sql = @"Select duckettsid, duckettstype, accounttype, customerid from ducketts";
+            var sql = @"Select * from Ducketts";
 
             return _dbConnection.Query<Duckett>(sql);
         }

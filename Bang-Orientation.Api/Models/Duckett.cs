@@ -7,8 +7,8 @@ namespace Bang_Orientation.Api.Models
 {
     public class Duckett
     {
-        public int DuckettsId { get; set; }
-        public string DuckettsType { get; set; }
+        public int DuckettId { get; set; }
+        public string DuckettType { get; set; }
         public int AccountNumber { get; set; }
         public int CustomerId { get; set; }
     }

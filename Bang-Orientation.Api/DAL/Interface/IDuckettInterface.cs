@@ -13,5 +13,6 @@ namespace Bang_Orientation.Api.DAL.Interface
         void Save(Duckett newDuckett);
 
         IEnumerable<Duckett> GetAllDucketts();
+        Duckett GetById(int id);
     }
 }
