@@ -44,7 +44,11 @@ namespace Bang_Orientation.Api.DAL.Repository
 
         public Order Delete(int id)
         {
-            throw new NotImplementedException();
+            var sql = @" Delete From [Order] Where OrderId = @id";
+
+            var deletedOrder = _dbConnection.QueryFirstOrDefault<Order>(sql, new { id = id });
+
+            return deletedOrder;
         }
     }
 }
