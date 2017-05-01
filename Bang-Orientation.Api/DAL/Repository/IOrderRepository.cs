@@ -10,8 +10,9 @@ namespace Bang_Orientation.Api.DAL.Repository
     public interface IOrderRepository
     {
         void Save(Order newOrder);
-        Order GetById(int id);
+        Order GetSingleOrder(int id);
         IEnumerable<Order> AllOrders();
         Order Delete(int id);
+        void Edit(Order updatedOrder);
     }
 }

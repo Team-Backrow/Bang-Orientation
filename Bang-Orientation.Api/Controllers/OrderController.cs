@@ -36,7 +36,7 @@ namespace Bang_Orientation.Api.Controllers
         [Route("api/order/{id}")]
         public HttpResponseMessage GetOrder(int id)
         {
-            var order = _orderRepository.GetById(id);
+            var order = _orderRepository.GetSingleOrder(id);
 
             if (order == null)
             {
@@ -63,6 +63,15 @@ namespace Bang_Orientation.Api.Controllers
             var deleteOrder = _orderRepository.Delete(id);
 
             return Request.CreateResponse(HttpStatusCode.OK, deleteOrder);
+        }
+
+        [HttpPut]
+        [Route("api/order/{id}")]
+        public HttpResponseMessage EditOrder([FromBody] Order updatedOrder)
+        {
+            _orderRepository.Edit(updatedOrder);
+
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
     }
 }

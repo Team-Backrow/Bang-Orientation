@@ -17,7 +17,7 @@ namespace Bang_Orientation.Api.DAL.Repository
             _dbConnection = connection;
         }
 
-        public Order GetById(int id)
+        public Order GetSingleOrder(int id)
         {     
             var sql = @"Select * From [Order] Where OrderId = @id";
             var singleOrder = _dbConnection.QuerySingle<Order>(sql, new { id = id });
@@ -50,5 +50,14 @@ namespace Bang_Orientation.Api.DAL.Repository
 
             return deletedOrder;
         }
+
+        public void Edit(Order updatedOrder)
+        {
+            var sql = @"Update [Order] Set OrderTitle = @ordertitle, DuckettsId = @duckettsid, CustomerId = @customerid";
+
+            _dbConnection.Execute(sql, updatedOrder);
+        }
+
+        
     }
 }
