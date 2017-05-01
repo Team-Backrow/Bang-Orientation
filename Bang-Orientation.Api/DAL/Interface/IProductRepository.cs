@@ -14,5 +14,6 @@ namespace Bang_Orientation.Api.DAL.Interface
         IEnumerable<Product> GetAllProducts();
         Product GetSingleProduct(int productId);
         bool DeleteSingleProduct(int productId);
+        bool UpdateAProduct(Product updateProduct);
     }
 }

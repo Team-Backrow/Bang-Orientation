@@ -13,6 +13,7 @@ namespace Bang_Orientation.Api.DAL.Repository
     public class ProductRepository : IProductRepository
     {
         IDbConnection _dbConnection;
+        private readonly object productId;
 
         public ProductRepository(IDbConnection connection)
         {
@@ -49,5 +50,12 @@ namespace Bang_Orientation.Api.DAL.Repository
 
             return 0< _dbConnection.Execute(sql, new {productId});
         }
+
+        public bool UpdateAProduct(Product updateProduct)
+        {
+            var sql = @"Update Product set name = @name, brand = @brand, description = @description, price = @price where productId = @productId";
+
+            return 0< _dbConnection.Execute(sql, updateProduct);
+        }      
     }
 }

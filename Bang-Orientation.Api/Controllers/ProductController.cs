@@ -60,6 +60,17 @@ namespace Bang_Orientation.Api.Controllers
 
             return Request.CreateResponse(HttpStatusCode.OK, itWorked);
         }
+
+        [HttpPut]
+        [Route("{productId}")]
+        public HttpResponseMessage UpdateAProduct (Product updateProduct, int productId)
+        {
+            updateProduct.ProductId = productId;
+
+            bool itUpdated = _productRepository.UpdateAProduct(updateProduct);
+
+            return Request.CreateResponse(HttpStatusCode.OK, itUpdated);
+        }
     }
 }
 
