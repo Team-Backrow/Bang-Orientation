@@ -33,8 +33,8 @@ namespace Bang_Orientation.Api.Controllers
         [HttpGet]
         public HttpResponseMessage GetACustomer(int id)
         {
-            _customerRepository.GetACustomer(id);
-            return Request.CreateResponse(HttpStatusCode.OK, id);
+            var oneCustomer = _customerRepository.GetACustomer(id);
+            return Request.CreateResponse(HttpStatusCode.OK, oneCustomer);
         }
 
         [HttpGet]

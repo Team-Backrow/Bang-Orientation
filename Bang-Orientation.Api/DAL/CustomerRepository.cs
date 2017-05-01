@@ -28,8 +28,8 @@ namespace Bang_Orientation.Api.DAL
 
         public Customer GetACustomer(int id)
         {
-            var sql = @"Select from Customer Where @customerid = @id";
-            var singleCustomer = _dbConnection.QuerySingle<Customer>(sql, id);
+            var sql = @"Select customerid,username,firstname,lastname,password from Customer Where customerid = @id";
+            var singleCustomer = _dbConnection.QuerySingle<Customer>(sql, new {id});
 
 
             return singleCustomer;
