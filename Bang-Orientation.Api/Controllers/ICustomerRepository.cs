@@ -6,7 +6,7 @@ namespace Bang_Orientation.Api.Controllers
     public interface ICustomerRepository
     {
         void Save(Customer newCustomer);
-        void GetACustomer(int id);
+        Customer GetACustomer(int id);
         IEnumerable<Customer> GetAllCustomers();
     }
 }

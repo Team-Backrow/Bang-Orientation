@@ -26,14 +26,13 @@ namespace Bang_Orientation.Api.DAL
                         
         }
 
-        public void GetACustomer(Customer customer)
+        public Customer GetACustomer(int id)
         {
-            var sql = @"Select from Customer(customerid,username,firstname,lastname,password)
-                        Values(@customerid,(@username,@firstname,@lastname,@password)
-                        Where @customerid = id";
-                        
+            var sql = @"Select from Customer Where @customerid = @id";
+            var singleCustomer = _dbConnection.QuerySingle<Customer>(sql, id);
 
-            _dbConnection.Execute(sql, customer);
+
+            return singleCustomer;
         }
 
         public IEnumerable<Customer> GetAllCustomers()
@@ -42,5 +41,6 @@ namespace Bang_Orientation.Api.DAL
 
             return _dbConnection.Query<Customer>(sql);
         }
+
     }
 }
