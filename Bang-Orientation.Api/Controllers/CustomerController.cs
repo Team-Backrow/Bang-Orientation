@@ -43,6 +43,14 @@ namespace Bang_Orientation.Api.Controllers
             var customers = _customerRepository.GetAllCustomers();
             return Request.CreateResponse(HttpStatusCode.OK, customers);
         }
+
+        [Route("{id}")]
+        [HttpDelete]
+        public HttpResponseMessage DeleteACustomer(int id)
+        {
+            var removedCustomer = _customerRepository.DeleteACustomer(id);
+            return Request.CreateResponse(HttpStatusCode.OK, removedCustomer);
+        }
     }
 }
 

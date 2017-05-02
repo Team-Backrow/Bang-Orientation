@@ -42,5 +42,11 @@ namespace Bang_Orientation.Api.DAL
             return _dbConnection.Query<Customer>(sql);
         }
 
+        public Customer DeleteACustomer(int id)
+        {
+            var sql = @"Delete from Customer Where customerid = @id";
+                
+            return _dbConnection.QueryFirstOrDefault<Customer>(sql, new {id});
+        }
     }
 }
