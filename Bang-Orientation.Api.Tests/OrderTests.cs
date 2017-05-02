@@ -67,5 +67,31 @@ namespace Bang_Orientation.Api.Tests
             _mockedOrderRepository.Verify(x => x.Save(It.IsAny<Order>()), Times.Never);
         }
 
+        [TestMethod]
+        public void GetOrderSuccessfully()
+        {
+            //arrange : in initialize method
+            var order = new Order
+            {
+                OrderTitle = "",
+                OrderID = 1234,
+                CustomerID = 1234,
+                DuckettsID = 1234
+            };
+
+            _mockedOrderRepository.Setup(x => x.GetSingleOrder(It.IsAny<int>()))
+                .Returns(order);
+
+            //act
+            var result = _controller.GetOrder(6);
+            var resultOrder = result.GetContentValue<Order>();
+
+            //assert
+            Assert.AreEqual(result.StatusCode, HttpStatusCode.OK);
+            Assert.AreEqual(resultOrder, order);
+        }
+
+
+
     }
 }
